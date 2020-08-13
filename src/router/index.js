@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import product from '@/components/product'
-import user from '@/components/user'
-import kuai from '@/components/kuai'
-import order from '@/components/order'
+import Dashboard from '@/components/common/dashboard'
+import Login from '@/components/login'
+import login from '@/components/login'
+import kong from '@/components/kong'
+import Home from '@/components/home'
+
 
 Vue.use(Router)
 
@@ -11,23 +13,34 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'kuai',
-      component: kuai
+      name: 'Login',
+      component: Login
     },
     {
-      path: '/user',
-      name: 'user',
-      component: user
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
-      path: '/product',
-      name: 'product',
-      component: product
+      path: '/kong',
+      name: 'kong',
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    },
+      component: kong
     },
     {
-      path: '/order',
-      name: 'order',
-      component: order
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      children: [{
+        path: '/home',
+        name: 'home',
+      //   meta: {
+      //     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      // },
+        component: Home,
+      }]
     }
   ]
 })
