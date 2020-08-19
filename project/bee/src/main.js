@@ -3,31 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import axios from 'axios'
-import store from './store'
+import heade from '@/components/heade'
+import left from '@/components/left'
+import Button from "ant-design-vue/lib/button";
+import "ant-design-vue/dist/antd.css";
+import './assets/css/all.css'
 import 'babel-polyfill'
-// import $ from 'jquery'
 import '_jquery@3.5.1@jquery/dist/jquery.min.js'
 import '_bootstrap@4.5.2@bootstrap/dist/css/bootstrap.min.css'
 import '_bootstrap@4.5.2@bootstrap/dist/js/bootstrap.min.js'
 
+Vue.component('heade', heade);
+Vue.component('left', left);
+Vue.component(Button.name, Button);
 Vue.config.productionTip = false
-// Vue.prototype.$axios = axios;
-/* eslint-disable no-new */
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(res => res.meta.requireAuth)) { // 验证是否需要登陆
-//     if (sessionStorage.getItem('sid')) { // 查询本地存储信息是否已经登陆
-//       next();
-//     } else {
-//       next({
-//         path: '/', // 未登录则跳转至login页面
-//         query: {redirect: to.fullPath} // 登陆成功后回到当前页面，这里传值给login页面，to.fullPath为当前点击的页面
-//         });
-//     }
-//   } else {
-//     next();
-//   }
-// });
+
 const whiteList = ['login']
 
 router.beforeEach((to, from, next) => {
@@ -52,12 +42,12 @@ router.beforeEach((to, from, next) => {
     }
   }
 })
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  // axios,
-  store,
+  heade,
+  left,
   components: { App },
   template: '<App/>'
 })
-
