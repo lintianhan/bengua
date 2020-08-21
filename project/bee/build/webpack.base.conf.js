@@ -95,6 +95,10 @@ module.exports = {
       $:"jquery",
       jQuery:"jquery",
       "windows.jQuery":"jquery" //如果安装了Popperjs就还需要添加 Popper: ['popper.js', 'default']
-    })
+    }),
+    // [
+    // "import",
+    //   { libraryName: "ant-design-vue", libraryDirectory: "es", style: true }
+    // ]
   ],
 }

@@ -5,8 +5,11 @@ import App from './App'
 import router from './router'
 import heade from '@/components/heade'
 import left from '@/components/left'
+import Antd from 'ant-design-vue';
 import Button from "ant-design-vue/lib/button";
+import Layout from "ant-design-vue/lib/layout";
 import "ant-design-vue/dist/antd.css";
+// import { Button } from 'ant-design-vue';
 import './assets/css/all.css'
 import 'babel-polyfill'
 import '_jquery@3.5.1@jquery/dist/jquery.min.js'
@@ -15,7 +18,9 @@ import '_bootstrap@4.5.2@bootstrap/dist/js/bootstrap.min.js'
 
 Vue.component('heade', heade);
 Vue.component('left', left);
+Vue.use(Antd);
 Vue.component(Button.name, Button);
+Vue.component(Layout.name, Layout);
 Vue.config.productionTip = false
 
 const whiteList = ['login']

@@ -3,21 +3,26 @@
     <div class="aa">
       <div class="logo">
         logo
-        <a-button type="warn">Button></a-button>
+        <!-- <a-button type="warn">Button></a-button> -->
       </div>
-      <div class="menu-list">
-        <div v-for="(names,index) in menu " :key="index">
-          <div v-on:click="toggle(names,index)">
-            {{names.name}}
-            <div v-if="!names.visible">
-              <div v-for="nam in names.children" :key="nam.id" class="menu-child">
-                <router-link :to="nam.ngUrl">{{nam.name}}</router-link>
+      <!-- <a-layout id="components-layout-demo-custom-trigger">
+        <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+      <a-menu theme="dark" mode="inline" :default-selected-keys="['1']"> -->
+        <div class="menu-list">
+          <div v-for="(names,index) in menu " :key="index">
+            <div v-on:click="toggle(names,index)">
+              {{names.name}}
+              <div v-if="!names.visible">
+                <div v-for="nam in names.children" :key="nam.id" class="menu-child">
+                  <router-link :to="nam.ngUrl">{{nam.name}}</router-link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
+      <!-- </a-menu>
+      </a-layout-sider>
+      </a-layout> -->
       <!-- <div>{{menu}}</div> v-on:click="zankai"-->
       <!-- <button v-on:click="count">点击</button> -->
     </div>

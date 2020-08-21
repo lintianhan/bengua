@@ -4,7 +4,8 @@ import login from '@/components/login'
 import home from '@/components/home'
 import heade from '@/components/heade'
 import ss from '@/components/ss'
-
+import Upload from '@/components/Upload'
+import bujv from '@/components/bujv'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +40,16 @@ export default new Router({
       path: '/ss',
       name: 'ss',
       component: ss,
+    },
+    {
+      path: '/Upload',
+      name: 'Upload',
+      component: Upload,
+    },
+    {
+      path: '/bujv',
+      name: 'bujv',
+      component: bujv
     },
   ]
 })
