@@ -7,7 +7,7 @@ const instance = axios.create({
   timeout: 15000,
   headers: {
     'content-type': 'application/json;charset=UTF-8',
-    'token':localStorage.getItem("token"),
+    'token': localStorage.getItem("token"),
     'lang': 'zh-CN'
   }
 })
@@ -20,6 +20,18 @@ instance.interceptors.request.use(config => {
   // }
   //  可以在此处添加 token
   // token:'aaa'
+  if (config.url.indexOf('getVehicleModelInfoPage') !== -1) {
+    
+    // console.log(config.headers);
+    // config.payload = { 
+    //   "pageSize": 10, "pageIndex": 1, "sort": [], "filters": [],
+    //    "filter": {
+    //       "op": "or", "groups": [], "rules": [{ "field": "vehicleModel", "op": "cn" }] 
+    //     }
+    //    }
+  }
+  // console.log(config);
+  // console.log(config.payload);
   return config
 }, error => {
   return Promise.reject(error)

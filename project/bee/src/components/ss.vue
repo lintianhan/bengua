@@ -1,46 +1,59 @@
-<template >
-<div id="components-layout-demo-basic">
-    <a-layout>
-      <a-layout-sider>Sider</a-layout-sider>
-      <a-layout>
-        <a-layout-header>Header</a-layout-header>
-        <a-layout-content>Content</a-layout-content>
-        <a-layout-footer>Footer</a-layout-footer>
-      </a-layout>
-    </a-layout>
-  </div>
+<template>
+  <a-select :v-model="ss" placeholder="Select a person" style="width: 200px">
+    <a-select-option value="jack">Jack</a-select-option>
+    <a-select-option value="lucy">Lucy</a-select-option>
+    <a-select-option value="tom">Tom</a-select-option>
+  </a-select>
 </template>
-
-<style>
-#components-layout-demo-basic {
-  height: 100%;
-  text-align: center;
-}
-#components-layout-demo-basic .ant-layout-header,
-#components-layout-demo-basic .ant-layout-footer {
-  background: #7dbcea;
-  color: #fff;
-}
-#components-layout-demo-basic .ant-layout-footer {
-  line-height: 1.5;
-}
-#components-layout-demo-basic .ant-layout-sider {
-  background: #3ba0e9;
-  color: #fff;
-  line-height: 120px;
-  height: 100%;
-}
-#components-layout-demo-basic .ant-layout-content {
-  background: rgba(16, 142, 233, 1);
-  color: #fff;
-  min-height: 120px;
-  line-height: 120px;
-}
-#components-layout-demo-basic > .ant-layout {
-  margin-bottom: 48px;
-  height: 100%;
-}
-#components-layout-demo-basic > .ant-layout:last-child {
-  margin: 0;
-}
-</style>
+<script>
+export default {
+  data() {
+    return {
+      a: [
+        {
+          pageSize: 10,
+          pageIndex: 1,
+          sort: [],
+          filters: [{ field: "title", op: "cn", term: "returnMsg" }],
+          filter: {
+            op: "or",
+            groups: [],
+            rules: [{ field: "type", op: "cn", data: "returnMsg" }],
+          },
+        },
+      ],
+      b: [
+        {
+          pageSize: 10,
+          pageIndex: 1,
+          sort: [],
+          filters: [{ field: "type", op: "cn", term: "returnMsg" }],
+          filter: {
+            op: "or",
+            groups: [],
+            rules: [{ field: "type", op: "cn", data: "returnMsg" }],
+          },
+        },
+      ],
+      ss: "",
+    };
+  },
+  methods: {
+    // handleChange(value) {
+    //   console.log(`selected ${value}`);
+    // },
+    // handleBlur() {
+    //   console.log('blur');
+    // },
+    // handleFocus() {
+    //   console.log('focus');
+    // },
+    // filterOption(input, option) {
+    //   return (
+    //     option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
+    //   );
+    // },
+  },
+};
+</script>
+/script>

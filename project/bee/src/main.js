@@ -3,9 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import * as filters from './filter/filter'
+import store from'@/store/store'
 import heade from '@/components/heade'
+import getlist from '@/components/getlist'
 import left from '@/components/left'
 import Antd from 'ant-design-vue';
+import editor from 'wangeditor'
+
 import Button from "ant-design-vue/lib/button";
 import Layout from "ant-design-vue/lib/layout";
 import "ant-design-vue/dist/antd.css";
@@ -15,8 +20,18 @@ import 'babel-polyfill'
 import '_jquery@3.5.1@jquery/dist/jquery.min.js'
 import '_bootstrap@4.5.2@bootstrap/dist/css/bootstrap.min.css'
 import '_bootstrap@4.5.2@bootstrap/dist/js/bootstrap.min.js'
+// import moment from 'moment'//导入文件
 
+// Vue.prototype.$moment = moment;//赋值使用
+
+// moment.locale('zh-cn');//需要汉化
+
+// Object.keys(filters).forEach((key) => {
+//   Vue.filter(key, filters[key]);
+// })
+Vue.prototype.editor = editor;
 Vue.component('heade', heade);
+Vue.component('getlist', getlist);
 Vue.component('left', left);
 Vue.use(Antd);
 Vue.component(Button.name, Button);
@@ -51,8 +66,11 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  filters,
+  store,
   heade,
   left,
+  getlist,
   components: { App },
   template: '<App/>'
 })
